@@ -14,11 +14,40 @@
     </div>
     <!--  We included a basic HTML structure for the 3 graphs here. Feel free to change this if you'd like  -->
     <div class="row">
+        <style>
+            .button_container {
+                position: relative;
+                left: 20%;
+            }
+        </style>
         <div class="col-lg-6">
-            <div id="graph1"></div>
-            <div id="graph2"></div><br/>
+            <div id="graph1"></div><br/>
+            <div class="button_container">
+                <button type="button" class="btn btn-info" onclick="updateData2('NA_Sales')">NA</button> 
+                <button type="button" class="btn btn-info" onclick="updateData2('EU_Sales')">EU</button>
+                <button type="button" class="btn btn-info" onclick="updateData2('JP_Sales')">JP</button>
+                <button type="button" class="btn btn-info" onclick="updateData2('Other_Sales')">Other</button>
+            </div><br/><br/>
+            <div id="graph2"></div><br/><br/><br/>
         </div>
         <div class="col-lg-6">
+            <div class="button_container">
+                <button type="button" class="btn btn-info" onclick="updateData3('Sports')">Sports</button>
+                <button type="button" class="btn btn-info" onclick="updateData3('Platform')">Platform</button>
+                <button type="button" class="btn btn-info" onclick="updateData3('Racing')">Racing</button>
+                <button type="button" class="btn btn-info" onclick="updateData3('Role-Playing')">Role-Playing</button>
+                <br/><br/>
+                <button type="button" class="btn btn-info" onclick="updateData3('Puzzle')">Puzzle</button>
+                <button type="button" class="btn btn-info" onclick="updateData3('Misc')">Misc</button>
+                <button type="button" class="btn btn-info" onclick="updateData3('Action')">Action</button>
+                <button type="button" class="btn btn-info" onclick="updateData3('Shooter')">Shooter</button>
+                <br/><br/>
+                <button type="button" class="btn btn-info" onclick="updateData3('Simulation')">Simulation</button>
+                <button type="button" class="btn btn-info" onclick="updateData3('Fighting')">Fighting</button>
+                <button type="button" class="btn btn-info" onclick="updateData3('Adventure')">Adventure</button>
+                <button type="button" class="btn btn-info" onclick="updateData3('Strategy')">Strategy</button>
+                <br/><br/>
+            </div>
             <div id="graph3"></div>
         </div>
     </div>
