@@ -10,8 +10,8 @@ let NUM_EXAMPLES = 10;
 
 let svg = d3.select("#graph1")
     .append("svg")
-    .attr("width", graph_1_width)     // HINT: width
-    .attr("height", graph_1_height)     // HINT: height
+    .attr("width", graph_1_width)     
+    .attr("height", graph_1_height)   
     .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);    // HINT: transform
 
@@ -39,33 +39,33 @@ d3.csv("data/video_games.csv").then(function(data) {
     bars.enter()
         .append("rect")
         .merge(bars)
-        .attr("fill", function(d) { return color(d['Name']) }) // Here, we are using functin(d) { ... } to return fill colors based on the data point d
+        .attr("fill", function(d) { return color(d['Name']) }) 
         .attr("x", x(0))
-        .attr("y", function(d){return y(d.Name);})               // HINT: Use function(d) { return ...; } to apply styles based on the data point (d)
+        .attr("y", function(d){return y(d.Name);})           
         .attr("width", function(d){return x(parseFloat(d.Global_Sales))})
-        .attr("height",  y.bandwidth());        // HINT: y.bandwidth() makes a reasonable display height
+        .attr("height",  y.bandwidth());      
 
     let counts = countRef.selectAll("text").data(data);
     counts.enter()
         .append("text")
         .merge(counts)
-        .attr("x", function(d) { return x(parseFloat(d.Global_Sales))+10;})       // HINT: Add a small offset to the right edge of the bar, found by x(d.Global_Sales)
-        .attr("y", function(d) { return y(d.Name) + 10;})       // HINT: Add a small offset to the top edge of the bar, found by y(d.Name)
+        .attr("x", function(d) { return x(parseFloat(d.Global_Sales))+10;})      
+        .attr("y", function(d) { return y(d.Name) + 10;})   
         .style("text-anchor", "start")
-        .text(function(d) { return parseFloat(d.Global_Sales);});           // HINT: Get the name of the artist
+        .text(function(d) { return parseFloat(d.Global_Sales);});   
 
     svg.append("text")
-        .attr("transform", `translate(${(graph_1_width - margin.left - margin.right) / 2}, ${(graph_1_height - margin.top - margin.bottom) + 15})`)       // HINT: Place this at the bottom middle edge of the graph - use translate(x, y) that we discussed earlier
+        .attr("transform", `translate(${(graph_1_width - margin.left - margin.right) / 2}, ${(graph_1_height - margin.top - margin.bottom) + 15})`)    
         .style("text-anchor", "middle")
         .text("Total Worldwide Sales (millions)");
 
     svg.append("text")
-        .attr("transform", `translate(${-175}, ${(graph_1_height - margin.top - margin.bottom)/2})`)       // HINT: Place this at the center left edge of the graph - use translate(x, y) that we discussed earlier
+        .attr("transform", `translate(${-175}, ${(graph_1_height - margin.top - margin.bottom)/2})`)   
         .style("text-anchor", "middle")
         .text("Name");
 
     svg.append("text")
-        .attr("transform", `translate(${(graph_1_width - margin.left - margin.right) / 2}, ${-20})`)       // HINT: Place this at the top middle edge of the graph - use translate(x, y) that we discussed earlier
+        .attr("transform", `translate(${(graph_1_width - margin.left - margin.right) / 2}, ${-20})`)   
         .style("text-anchor", "middle")
         .style("font-size", 15)
         .text("Top 10 Videogames of All Time");
@@ -80,14 +80,14 @@ let svg2 = d3.select("#graph2")
     .attr("width", graph_2_width)    
     .attr("height", graph_2_height)     
     .append("g")
-    .attr("transform", `translate(${margin.left+50},${margin.top+100})`);    // HINT: transform
+    .attr("transform", `translate(${margin.left+50},${margin.top+100})`);   
 
 let labelsRef2 = svg2.append("g");
 let titleRef2 = svg2.append("g");
 
-var radius = Math.min(graph_2_width, graph_2_height)/2.5; //
+var radius = Math.min(graph_2_width, graph_2_height)/2.5; 
 var color = d3.scaleOrdinal() 
-    .range(d3.quantize(d3.interpolateHcl("#66a0e2", "#81c2c3"), NUM_EXAMPLES)); //
+    .range(d3.quantize(d3.interpolateHcl("#66a0e2", "#81c2c3"), NUM_EXAMPLES)); 
 
 let tooltip = d3.select("#graph2")    
     .append("div")
@@ -111,7 +111,7 @@ function updateData2(region) {
 
         let mouseover = function(d) {
             let html = `${d.data.value.Genre}<br/>
-                    Sales (millions): ${d.data.value.Sales.toFixed(2)}</span>`;       // HINT: Display the song here
+                    Sales (millions): ${d.data.value.Sales.toFixed(2)}</span>`;    
 
             tooltip.html(html)
                 .style("left", `${(d3.event.pageX)-30}px`)
@@ -185,7 +185,7 @@ let svg3 = d3.select("#graph3")
     .attr("width", graph_3_width)    
     .attr("height", graph_3_height)     
     .append("g")
-    .attr("transform", `translate(${margin.left},${margin.top})`);    // HINT: transform
+    .attr("transform", `translate(${margin.left},${margin.top})`);   
 
 
 let x3 = d3.scaleLinear()
@@ -201,7 +201,7 @@ let titleRef3 = svg3.append("g");
 let y_axis_label = svg3.append("g");
 
 let y_axis_text = svg3.append("text")
-    .attr("transform", `translate(${-110}, ${(graph_3_height - margin.top - margin.bottom)/2})`)        // HINT: Place this at the center left edge of the graph
+    .attr("transform", `translate(${-110}, ${(graph_3_height - margin.top - margin.bottom)/2})`)  
     .style("text-anchor", "middle");
 
 function updateData3(genre) {
@@ -226,11 +226,11 @@ function updateData3(genre) {
             .merge(bars3)
             .transition()
             .duration(1000)
-            .attr("fill", function(d) { return color3(d['Publisher']) }) // Here, we are using functin(d) { ... } to return fill colors based on the data point d
+            .attr("fill", function(d) { return color3(d['Publisher']) }) 
             .attr("x", x3(0))
-            .attr("y", function(d){return y3(d.Publisher);})               // HINT: Use function(d) { return ...; } to apply styles based on the data point (d)
+            .attr("y", function(d){return y3(d.Publisher);})             
             .attr("width", function(d){return x3(parseFloat(d.Global_Sales))})
-            .attr("height",  y3.bandwidth())       // HINT: y.bandwidth() makes a reasonable display height
+            .attr("height",  y3.bandwidth())      
             .style("opacity", function(d) {if (d.Publisher == max_publisher) {return 1} else {return 0.5}});
 
         let counts3 = countRef3.selectAll("text").data(data3);
@@ -239,13 +239,13 @@ function updateData3(genre) {
             .merge(counts3)
             .transition()
             .duration(1000)
-            .attr("x", function(d) { return x3(parseFloat(d.Global_Sales))+10;})       // HINT: Add a small offset to the right edge of the bar, found by x(d.Global_Sales)
-            .attr("y", function(d) { return y3(d.Publisher) + 10;})       // HINT: Add a small offset to the top edge of the bar, found by y(d.Name)
+            .attr("x", function(d) { return x3(parseFloat(d.Global_Sales))+10;})     
+            .attr("y", function(d) { return y3(d.Publisher) + 10;})    
             .style("text-anchor", "start")
-            .text(function(d) { return (parseFloat(d.Global_Sales)).toFixed(2);});           // HINT: Get the name of the artist
+            .text(function(d) { return (parseFloat(d.Global_Sales)).toFixed(2);});     
 
         svg3.append("text")
-            .attr("transform", `translate(${(graph_3_width - margin.left - margin.right) / 2}, ${(graph_3_height - margin.top - margin.bottom) + 15})`)       // HINT: Place this at the bottom middle edge of the graph - use translate(x, y) that we discussed earlier
+            .attr("transform", `translate(${(graph_3_width - margin.left - margin.right) / 2}, ${(graph_3_height - margin.top - margin.bottom) + 15})`)      
             .style("text-anchor", "middle")
             .text("Total Worldwide Sales (millions)");
 
@@ -254,7 +254,7 @@ function updateData3(genre) {
 
         title.enter().append("text")
             .merge(title)
-            .attr("transform", `translate(${(graph_3_width - margin.left - margin.right) / 2}, ${-20})`)       // HINT: Place this at the top middle edge of the graph - use translate(x, y) that we discussed earlier
+            .attr("transform", `translate(${(graph_3_width - margin.left - margin.right) / 2}, ${-20})`)  
             .style("text-anchor", "middle")
             .style("font-size", 15)
             .text("Top 10 Publishers for "+genre);

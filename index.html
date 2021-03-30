@@ -22,6 +22,8 @@
         </style>
         <div class="col-lg-6">
             <div id="graph1"></div><br/>
+        </div>
+        <div class="col-lg-6"></div>
             <div class="button_container">
                 <button type="button" class="btn btn-info" onclick="updateData2('NA_Sales')">NA</button> 
                 <button type="button" class="btn btn-info" onclick="updateData2('EU_Sales')">EU</button>
@@ -50,6 +52,34 @@
             </div>
             <div id="graph3"></div>
         </div>
+    </div>
+    <style>
+        .written_questions {
+            margin: 20px;
+        }
+    </style>
+    <div class="written_questions">
+        Written Questions <br/><br/>
+        1. My dashboard answers the three questions presented for the video game dataset. <br/><br/>
+        a. The first graph displays the top 10 video games of all time in a bar chart. The results in descending order by number of sales worldwide. The corresponding number of sales for each video game is displayed in millions at the end of each bar (horizontal axis), while the name of each video game is displayed at the start of each bar (vertical axis). The colors follow a gradient, with more popular video games represented by darker colors. <br/><br/>
+        b. The second graph displays the top 10 genre sales per region in a pie chart. Users can toggle between regions (NA, EU, JP, and Other) using the buttons above the chart. Each slice is labelled with the genre it corresponds to, and hovering over the slice also shows the number of sales (in millions) for that genre in the given region. The colors of the slices follow the same gradient as the bars do in the first graph, with darker colors indicating more popular genres. <br/><br/>
+        c. The third graph displays the top 10 publishers per genre in a bar chart. The results are in descending order by number of sales worldwide. The corresponding number of sales for each publisher is displayed in millions at the end of each bar (horizontal axis), while the name of each publisher is displayed at the start of each bar (vertical axis). Users can toggle between genres using the buttons above the chart. The colors of the bars follow the same gradient as the first two graphs, with darker colors indicating more popular genres. In order to highlight the #1 top publisher for each genre more clearly, opacity is decreased for all other publishers. The top publisher should also be clearly identifiable as it is always represented by the top bar in the chart. <br/><br/>
+        
+        2. <br/><br/>
+        a. D3 has a wide range of visualization types, each of which can be styled easily to allow for better accessibility. D3 allows for modifying Javascript, CSS, and HTML, which gives designers more flexibility when customizing visualizations.<br/><br/>
+        b. D3 makes creating dynamic visualizations easy, which is very helpful in organizing data with many features. <br/><br/>
+        c. D3 makes code easy to debug, because errors are logged in the console of the browser’s inspector. <br/><br/>
+        
+        3. <br/><br/>
+        a. D3 visualization may be inefficient, which is a disadvantage if the dataset is large enough, causing slowdown.<br/><br/>
+        b. D3 documentation includes examples, but little explanation of how they work. This makes it difficult to implement some visualization types.<br/><br/>
+        c. D3 doesn’t have preset visualizations, so it can be a difficult and time consuming alternative if the dataset doesn’t require a tailored, aesthetically pleasing visualization. I found that using D3 required more data cleaning prior to visualization than I expected, which makes it less convenient.</br><br/>
+        
+        4. <br/><br/>
+        Based on the two articles on accessibility, I think my dashboard is accessible to fully sighted users but less so for those with vision impairments. As described in the Medium article, screen readers are necessary to convey the information in visualizations to blind people, but can only read text. My dashboard does not make use of alt text, so screen readers will not necessarily be able to access the information in my graphs. To make my dashboard more accessible to screen reader users, it would be helpful to include brief, descriptive summaries of each graph. The medium article also emphasizes the importance of conveying the same visual distinctions to people with colorblindness - through line thickness and other patterns. My dashboard does not vary line thickness or patterns, which should be added to increase its accessibility for colorblind users. As the Betterment article describes, data visualizations should account for different types of colorblindness. My graphs do not make use of both red and green, so they should be accessible for users with deuteranopia or protanopia. However, because my color schemes use blues and greens, my graphs are less accessible for those with tritanopia colorblindness. However, I do label all axes and data points without making use of color keys. Further, adjacent slices of my pie chart are separated with white space so that the sections are more visually distinct for low vision users. The Betterment article also discourages the use of complex tools, like sliders and hover overlays, which are difficult to use with assistive technology. My pie chart uses a hover overlay, which makes it less accessible for blind users. However, I do not use complex tools such as sliders, instead using simple buttons to toggle between genres and regions, as this is a more accessible option for visually impaired users.<br/><br/>
+        
+        5. <br/><br/>
+        One stage where I could have taken steps to make my dashboard more accessible to all audiences is when I was styling my bar charts. Though I attempted to make visual distinctions between bars using color and opacity and arranged them in descending order, they could have been more visually accessible if I had used different patterns to fill the bars. Further, I could have labeled the slices of my pie chart more clearly, so that text is not overlapping in adjacent narrow slices. Though I tried to make both of these changes, the main factor that kept me from taking these steps (particularly when attempting to translate the labels in the pie chart) was a lack of documentation for making these changes specifically and my own unfamiliarity with D3.<br/><br/>
     </div>
     <!--Feel free to add more JavaScript files as needed-->
     <script type="text/javascript" src="main.js"></script>
